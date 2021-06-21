@@ -13,9 +13,16 @@ class User(db.Model, TimestampMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(512), nullable=False)
-    age = db.Column(db.Integer, nullable=False)
-    information = db.Column(db.Text)
+    email = db.Column(db.VARCHAR(128), nullable=False, unique=True)
+    password = db.Column(db.VARCHAR(128), nullable=False)
+    first_name = db.Column(db.VARCHAR(128))
+    last_name = db.Column(db.VARCHAR(128))
+    last_login = db.Column(db.DATETIME(6))
+    date_joined = db.Column(db.DATETIME(6))
+    is_active = db.Column(db.Boolean, default=False)
+    is_superuser = db.Column(db.Boolean, default=False)
+    is_admin = db.Column(db.Boolean, default=False)
+    avatar = db.Column(db.VARCHAR(100))
 
     def to_dict(self):
         return refine_dict(
