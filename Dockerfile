@@ -2,13 +2,13 @@ FROM python:3.6
 
 EXPOSE 5000
 WORKDIR /code
-ADD requirements.txt /code/
+COPY requirements.txt /code/
 
 RUN pip install --upgrade pip
 
 RUN pip install -r requirements.txt
 
-ADD . /code/
+COPY . /code/
 
 RUN chmod +x wait-for-it.sh
 
