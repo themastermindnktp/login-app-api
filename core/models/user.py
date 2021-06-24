@@ -1,4 +1,3 @@
-import enum
 import logging
 
 from flask_restplus import fields
@@ -17,8 +16,8 @@ class User(db.Model, TimestampMixin):
     password = db.Column(db.VARCHAR(128), nullable=False)
     first_name = db.Column(db.VARCHAR(128))
     last_name = db.Column(db.VARCHAR(128))
-    last_login = db.Column(db.DATETIME(6))
-    date_joined = db.Column(db.DATETIME(6))
+    last_login = db.Column(db.TIMESTAMP)
+    date_joined = db.Column(db.TIMESTAMP)
     is_active = db.Column(db.Boolean, default=False)
     is_superuser = db.Column(db.Boolean, default=False)
     is_admin = db.Column(db.Boolean, default=False)
