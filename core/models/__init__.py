@@ -31,3 +31,4 @@ def init_app(app, **kwargs):
 from .base import TimestampMixin
 from .user import User, UserSchema
 from .auth_token import AuthToken
+from .email import Email
