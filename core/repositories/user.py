@@ -17,7 +17,7 @@ class UserRepository:
     def get_by_id(id):
         user = User.query.filter(User.id == id).first()
         return user
-    
+
     @staticmethod
     def get_list():
         users = User.query.all()

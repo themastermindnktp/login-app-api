@@ -1,5 +1,7 @@
 import logging
 
+from flask_restplus import fields
+
 from core.models import db, TimestampMixin
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
@@ -19,3 +21,14 @@ class EmailVerification(db.Model, TimestampMixin):
 
     user_id = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
     user = relationship('User')
+
+
+class EmailVerificationSchema:
+    email_verify_forgot_password_req = {
+        'email': fields.String(required=True, desciption='email')
+    }
+
+    email_verify_forgot_password_resp = {
+        'email': fields.String(required=True, description='email'),
+        'token': fields.String(required=True, description='token')
+    }
