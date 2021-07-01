@@ -19,6 +19,11 @@ class UserRepository:
         return user
 
     @staticmethod
+    def get_by_email(email):
+        user = User.query.filter(User.email == email).first()
+        return user
+
+    @staticmethod
     def get_list():
         users = User.query.all()
         return users
